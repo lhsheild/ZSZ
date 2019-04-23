@@ -11,8 +11,9 @@ namespace ZSZ.Service.Entities
         public string Email { get; set; }
         public long CityId { get; set; }
         public virtual CityEntity City { get; set; }
+        public long RoleId { get; set; }
+        public virtual RoleEntity Role { get; set; }
         public int LoginErrorTimes { get; set; }
         public DateTime LastLoginErrorDateTime { get; set; }
-        
     }
 }

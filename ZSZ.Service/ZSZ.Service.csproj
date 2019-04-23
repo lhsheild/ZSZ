@@ -64,6 +64,8 @@
     <Compile Include="Entities\SettingEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="ModelConfig\AdminLogConfig.cs" />
+    <Compile Include="ModelConfig\AdminUserConfig.cs" />
+    <Compile Include="ModelConfig\AttachmentConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

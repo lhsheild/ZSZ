@@ -1,4 +1,8 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ZSZ.Service.Entities
 {
@@ -12,7 +16,7 @@ namespace ZSZ.Service.Entities
         public int MonthRent { get; set; }
         public long StatusId { get; set; }
         public virtual IdNameEntity Status { get; set; }
-        public double Area { get; set; }
+        public decimal Area { get; set; }
         public long DecorateStatusId { get; set; }
         public virtual IdNameEntity DecorateStatus { get; set; }
         public int TotalFloorCount { get; set; }
@@ -25,5 +29,8 @@ namespace ZSZ.Service.Entities
         public string OwnerName { get; set; }
         public string OwnerPhoneNum { get; set; }
         public string Description { get; set; }
+
+        public virtual ICollection<AttachmentEntity> Attachments { get; set; } = new List<AttachmentEntity>();
+        public virtual ICollection<HousePicEntity> HousePics { get; set; } = new List<HousePicEntity>();
     }
 }

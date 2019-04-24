@@ -1,15 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ZSZ.Service.Entities;
 
-namespace ZSZ.Service.ModelConfig
+namespace ZSZ.DAL.ModelConfig
 {
-    public class AttachmentConfig:EntityTypeConfiguration<AttachmentEntity>
+    class AttachmentConfig:EntityTypeConfiguration<AttachmentEntity>
     {
         public AttachmentConfig()
         {
             ToTable("T_Attachments");
-            Property(e => e.Name).IsRequired().HasMaxLength(32);
-            Property(e => e.IconName).IsRequired().HasMaxLength(32);
+            //多对多WithMany不能空
+            HasMany(a => a.Houses).WithMany(a=>a.Attachments).Map(m=>m.ToTable("T_HouseAttachments")
+                .MapLeftKey("AttachmentId").MapRightKey("HouseId"));
+            Property(e => e.IconName).IsRequired().HasMaxLength(50).IsUnicode(false);
+            Property(e => e.Name).IsRequired().HasMaxLength(50);
         }
     }
 }
